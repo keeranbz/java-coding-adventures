@@ -1,5 +1,4 @@
 # Progress Bar
-directory: *progress-bar/* 
 A cli loading bar program. (incomplete)
 
 Compile/Run:

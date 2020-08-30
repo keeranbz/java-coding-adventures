@@ -1,8 +1,9 @@
 # Java Coding Adventures
 
 ### Progress Bar
-directory: *progress-bar/* 
 A cli loading bar program. (incomplete)
+
+directory: _progress-bar/_ 
 
 Lesson:
 - "\r" sets the cursor at the start of the line. Does it clear text or overwrite?
