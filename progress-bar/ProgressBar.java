@@ -1,20 +1,71 @@
-// ref https://masterex.github.io/archive/2011/10/23/java-cli-progress-bar.html
 
+/**
+ * Loading bar with percentage counter.
+ * Inspired by https://masterex.github.io/archive/2011/10/23/java-cli-progress-bar.html
+ * @author Keeran Bezuidenhout
+ * 
+ */
 public class ProgressBar {
-    
-    public static void main(String[] args) {
-        // a process needs to be converted to numbers.
-        // \r resets the line.
 
-        int procs = 100000; // so the loading isn't too fast
+    private int totalProcesses;
+    private char symbol;
 
-        // implemented with percentage counter
-        for (int i = 0; i <= procs; i++) { 
-            int percent = (i * 100) / procs ;
-            System.out.print("\r" + "Processing...  " + percent + " %"); 
-        }
-        System.out.println();
+    /**
+     * Default Constructor.
+     */
+    public ProgressBar(){
+        this.totalProcesses = 0;
+        this.symbol = '#';
+    }
 
-        // now make it an class that can be used in any project.
+    /**
+     * Constructor.
+     * 
+     *  @param  totalProcesses  the total number of processes used to calculate progress percentage.
+     *  @param  symbol          symbol used to build the progress bar.
+     */
+    public ProgressBar( int totalProcesses,  char symbol) {
+        this.totalProcesses = totalProcesses;
+        this.symbol = symbol;
+    }
+
+    public void setTotalProcesses( int totalProcesses) {
+        this.totalProcesses = totalProcesses;
+    }
+
+    public void setSymbol( char symbol) {
+        this.symbol = symbol;
+    }
+
+    public int getTotalProcesses() {
+        return this.totalProcesses;
+    }
+
+    public char getSymbol() {
+        return this.symbol;
+    }
+
+    /**
+     * Updates loading bar and percentage counter.
+     * @param currentProcess integer of the current number of completed processes used in percentage calculation.
+     * @return String of the progress bar with symbol and percentage counter.
+     */
+    public String update( int currentProcess) {
+        int percent = (currentProcess * 100) / totalProcesses;
+        int characters = percent / 5;
+        String bar = new String(new char[characters]).replace('\0', symbol); // https://stackoverflow.com/questions/2255500/can-i-multiply-strings-in-java-to-repeat-sequences
+        return String.format("\r|%-20s|  %d %%", bar, percent);
+    }
+
+    /**
+     *  Clears loading bar and percentage counter.
+     * @return  Returns carriage return character
+     */
+    public String clear() {
+        return String.format("\r %30s", "");
     }
 }
+
+
+
+
