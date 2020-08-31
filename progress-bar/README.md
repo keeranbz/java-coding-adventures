@@ -3,10 +3,10 @@ A cli loading bar program. (incomplete)
 
 Compile/Run:
 ```
-    javac ProgressBar.java
+    javac ProgressBarRunner.java
 ```
 ```
-    java ProgressBar
+    java ProgressBarRunner
 ```
 
 Lesson:
