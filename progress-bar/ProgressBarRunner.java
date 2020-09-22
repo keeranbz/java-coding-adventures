@@ -8,7 +8,7 @@ public class ProgressBarRunner {
         for (int i = 0; i <= procs; i++) { 
             System.out.print(bar.update(i)); 
         }
-        // System.out.print(bar.clear());
+        System.out.print(bar.clear());
         System.out.println();
 
     }

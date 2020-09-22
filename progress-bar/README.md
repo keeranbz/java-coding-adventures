@@ -1,5 +1,5 @@
 # Progress Bar
-A cli loading bar program. (incomplete)
+A cli loading bar program.
 
 Compile/Run:
 ```

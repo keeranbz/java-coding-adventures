@@ -54,7 +54,7 @@ public class ProgressBar {
         int percent = (currentProcess * 100) / totalProcesses;
         int characters = percent / 5;
         String bar = new String(new char[characters]).replace('\0', symbol); // https://stackoverflow.com/questions/2255500/can-i-multiply-strings-in-java-to-repeat-sequences
-        return String.format("\r|%-20s|  %d %%", bar, percent);
+        return String.format("\r[%-20s]  %d %%", bar, percent);
     }
 
     /**
